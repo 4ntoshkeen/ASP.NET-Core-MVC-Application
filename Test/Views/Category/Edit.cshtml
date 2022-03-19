@@ -1,0 +1,72 @@
+﻿@model Test.Models.Category
+
+<form method="post">
+    <input asp-for="Id" hidden />
+    <div class="border p-3">
+        <div class="form-group row">
+            <h2 class="text-info pl-3">
+                РЕДАКТИРОВАТЬ ЗАМЕТКУ
+            </h2>
+        </div>
+        <div class="row">
+            <div class="col-8">
+                <div class="form-group row">
+                    <div class="col-4">
+                        ТЕМА
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        ПРИОРИТЕТ
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="DisplayOrder" class="form-control" />
+                        <span asp-validation-for="DisplayOrder" class="text-danger"></span>
+                    </div>
+
+                </div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        ТЕКСТ ЗАМЕТКИ
+                    </div>
+                    <div class="col-8">
+                        <input asp-for="Text" class="form-control" />
+                        <span asp-validation-for="Text" class="text-danger"></span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-8 offset-4 row">
+                    <div class="col">
+                        <input type="submit" class="mx-2 btn btn-info w-100" value="СОХРАНИТЬ" />
+                    </div>
+                    <div class="col">
+                        <a asp-action="Index" class="mx-2 btn btn-success w-100">
+                            НАЗАД
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-4">
+
+        </div>
+    </div>
+    </div>
+</form>
+
+
+@section Scripts {
+
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
+

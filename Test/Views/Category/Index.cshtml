@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Test.Models.Category> 
+
+<div class="container p-3">
+    <div class="row pt-4">
+        <div class="col-6">
+            <h2 class="text-primary">ВСЕ ЗАМЕТКИ</h2>
+        </div>
+        <div class="col-6" text-right>
+            <a asp-controller="Category" asp-action="Create" class=" btn btn-primary">СОЗДАТЬ НОВУЮ ЗАМЕТКУ</a>            
+        </div>
+    </div>
+
+    <br /><br />
+
+    @if(Model.Count() > 0)
+     {
+        <p>@Model.Count()</p>
+        <table class="table table-bordered tabel-striped">
+            <thead>
+                <tr>
+                    <th>
+                        Тема
+                    </th>
+                    <th>
+                        Приоритет
+                    </th>
+                    <th>
+                        Текст заметки
+                    </th>
+                    <th>
+                        Дата создания
+                    </th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var obj in Model)
+                {                    
+                <tr>
+                    
+                    <td width="10%">@obj.Name</td>
+                    <td width="5%">@obj.DisplayOrder</td>
+                    <td width="70%">@obj.Text</td>
+                    <td width="5%">@obj.Time</td>
+                    <td width="10%" class="text-center">
+                        <div class="w-10 btn-group" role="group">
+                            <a asp-controller="Category" asp-route-Id="@obj.Id" asp-action="Edit" class="btn btn-primary mx-2">РЕДАКТИРОВАТЬ</a>
+                            <a asp-controller="Category" asp-route-Id="@obj.Id" asp-action="Delete" class="btn btn-danger mx-2">УДАЛИТЬ</a>
+                        </div>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+     }
+            else
+            {
+                <p>СПИСОК ТЕМ ОТСУТСТВУЕТ</p>
+            }
+
+</div>
